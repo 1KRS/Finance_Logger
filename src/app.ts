@@ -1,17 +1,26 @@
 //classes
 class Invoice {
-  client: string;
-  details: string;
-  amount: number;
 
-  constructor(c: string, d: string, a: number) {
-    this.client = c;
-    this.details = d;
-    this.amount = a;
-  }
+// Α΄τρόπος
+//   client: string;
+//   details: string;
+//   amount: number;
+
+//   constructor(c: string, d: string, a: number) {
+//     this.client = c;
+//     this.details = d;
+//     this.amount = a;
+//   }
+
+// Β΄τρόπος
+  constructor(
+    public client: string,
+    public details: string,
+    public amount: string,
+  ) {}
 
   format() {
-    return `${this.client} χρωστάει ${this.amount} για το/τα ${this.details}}`
+    return `${this.client} χρωστάει ${this.amount}€ για ${this.details}`
   }
 }
 
@@ -20,6 +29,13 @@ const invTwo = new Invoice('Χωστούδς', 'Πίτσες', 30);
 const invThree = new Invoice('Ζορζάκ', 'Πιτόγυρα', 25);
 
 let invoices: Invoice[] = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+invoices.push(invThree);
+
+invoices.forEach(inv => {
+  console.log(`Ο ${inv.client} πλήρωσε για τα ${inv.details} ${inv.amount}`, inv.format());
+})
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
