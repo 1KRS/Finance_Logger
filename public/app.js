@@ -1,29 +1,15 @@
 import { Invoice } from './classes/Invoice.js';
 import { Payment } from './classes/Payment.js';
-// let docOne: HasFormatter;
-// let docTwo: HasFormatter;
-// docOne = new Invoice('Μητσουέλ', "Πιτόγυρα", 10);
-// docTwo = new Payment('Χωστούδς', "Κοψίδια", 14);
-// let docs: HasFormatter[] = [];
-// docs.push(docOne);
-// docs.push(docTwo);
-// console.log(docs);
-// const invOne = new Invoice('Μητσουέλ', 'Κοψίδια', 35);
-// const invTwo = new Invoice('Χωστούδς', 'Πίτσες', 30);
-// const invThree = new Invoice('Ζορζάκ', 'Πιτόγυρα', 25);
-// let invoices: Invoice[] = [];
-// invoices.push(invOne);
-// invoices.push(invTwo);
-// invoices.push(invThree);
-// invoices.forEach(inv => {
-//   console.log(`Ο ${inv.client} πλήρωσε για τα ${inv.details} ${inv.amount}`, inv.format());
-// })
+import { ListTemplate } from './classes/ListTemplate.js';
 const form = document.querySelector('.new-item-form');
 // inputs
 const type = document.querySelector('#type');
 const tofrom = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
+// list template instance
+const ul = document.querySelector('ul');
+const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let doc;
@@ -33,5 +19,5 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    list.render(doc, type.value, 'end');
 });
