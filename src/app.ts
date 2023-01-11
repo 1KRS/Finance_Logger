@@ -1,28 +1,31 @@
-//classes
-class Invoice {
+import { Invoice } from './classes/Invoice.js';
 
-// Α΄τρόπος
-//   client: string;
-//   details: string;
-//   amount: number;
-
-//   constructor(c: string, d: string, a: number) {
-//     this.client = c;
-//     this.details = d;
-//     this.amount = a;
-//   }
-
-// Β΄τρόπος
-  constructor(
-    public client: string,
-    public details: string,
-    public amount: string,
-  ) {}
-
-  format() {
-    return `${this.client} χρωστάει ${this.amount}€ για ${this.details}`
-  }
+interface IsPerson {
+  name: string;
+  age: number;
+  speak(a: string): void;
+  spend(a: number): number;
 }
+
+const me: IsPerson = {
+  name: 'Δημήτρης',
+  age: 39,
+  speak(language: 'Ελληνικά'): void {
+    console.log(`Ο ${this.name} μιλάει ${language}`)
+  },
+  spend(amount: number): number {
+    console.log(`Ξόδεψα ${amount}`);
+    return amount;
+  },
+}
+
+const greetPerson = (person: IsPerson) => {
+  console.log(`Γεια σου ${person.name}`);
+}
+
+greetPerson(me);
+
+console.log(me);
 
 const invOne = new Invoice('Μητσουέλ', 'Κοψίδια', 35);
 const invTwo = new Invoice('Χωστούδς', 'Πίτσες', 30);
