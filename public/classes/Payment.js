@@ -1,4 +1,4 @@
-export class Invoice {
+export class Payment {
     // Α΄τρόπος
     //   client: string;
     //   details: string;
@@ -9,12 +9,12 @@ export class Invoice {
     //     this.amount = a;
     //   }
     // Β΄τρόπος
-    constructor(client, details, amount) {
-        this.client = client;
+    constructor(recipient, details, amount) {
+        this.recipient = recipient;
         this.details = details;
         this.amount = amount;
     }
     format() {
-        return `Ο ${this.client} χρωστάει ${this.amount}€ για ${this.details}`;
+        return `Ο ${this.recipient} οφείλει να λάβει ${this.amount}€ για ${this.details}`;
     }
 }

@@ -1,31 +1,18 @@
 import { Invoice } from './classes/Invoice.js';
+import { Payment } from './classes/Payment.js';
+import { HasFormatter } from './interfaces/HasFormatter.js';
 
-interface IsPerson {
-  name: string;
-  age: number;
-  speak(a: string): void;
-  spend(a: number): number;
-}
+let docOne: HasFormatter;
+let docTwo: HasFormatter;
 
-const me: IsPerson = {
-  name: 'Δημήτρης',
-  age: 39,
-  speak(language: 'Ελληνικά'): void {
-    console.log(`Ο ${this.name} μιλάει ${language}`)
-  },
-  spend(amount: number): number {
-    console.log(`Ξόδεψα ${amount}`);
-    return amount;
-  },
-}
+docOne = new Invoice('Μητσουέλ', "Πιτόγυρα", 10);
+docTwo = new Payment('Χωστούδς', "Κοψίδια", 14);
 
-const greetPerson = (person: IsPerson) => {
-  console.log(`Γεια σου ${person.name}`);
-}
+let docs: HasFormatter[] = [];
+docs.push(docOne);
+docs.push(docTwo);
 
-greetPerson(me);
-
-console.log(me);
+console.log(docs);
 
 const invOne = new Invoice('Μητσουέλ', 'Κοψίδια', 35);
 const invTwo = new Invoice('Χωστούδς', 'Πίτσες', 30);

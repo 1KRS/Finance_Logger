@@ -1,20 +1,13 @@
 import { Invoice } from './classes/Invoice.js';
-const me = {
-    name: 'Δημήτρης',
-    age: 39,
-    speak(language) {
-        console.log(`Ο ${this.name} μιλάει ${language}`);
-    },
-    spend(amount) {
-        console.log(`Ξόδεψα ${amount}`);
-        return amount;
-    },
-};
-const greetPerson = (person) => {
-    console.log(`Γεια σου ${person.name}`);
-};
-greetPerson(me);
-console.log(me);
+import { Payment } from './classes/Payment.js';
+let docOne;
+let docTwo;
+docOne = new Invoice('Μητσουέλ', "Πιτόγυρα", 10);
+docTwo = new Payment('Χωστούδς', "Κοψίδια", 14);
+let docs = [];
+docs.push(docOne);
+docs.push(docTwo);
+console.log(docs);
 const invOne = new Invoice('Μητσουέλ', 'Κοψίδια', 35);
 const invTwo = new Invoice('Χωστούδς', 'Πίτσες', 30);
 const invThree = new Invoice('Ζορζάκ', 'Πιτόγυρα', 25);

@@ -1,6 +1,6 @@
 import { HasFormatter } from "../interfaces/HasFormatter.js";
 
-export class Invoice implements HasFormatter {
+export class Payment implements HasFormatter {
   // Α΄τρόπος
 
   //   client: string;
@@ -15,12 +15,12 @@ export class Invoice implements HasFormatter {
   
   // Β΄τρόπος
     constructor(
-      public client: string,
+      public recipient: string,
       public details: string,
       public amount: number,
     ) {}
   
     format() {
-      return `Ο ${this.client} χρωστάει ${this.amount}€ για ${this.details}`
+      return `Ο ${this.recipient} οφείλει να λάβει ${this.amount}€ για ${this.details}`
     }
   }
